@@ -7,7 +7,7 @@
 </head>
 <body style="background-color: #414141; color: aliceblue;">
     <h2>Amazing image</h2>
-    <div >
+    <div>
         <ul id="images">
             <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
             <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
@@ -31,12 +31,65 @@
     //explore these topics for interview perspective
     //type, timestamp, defaultPrevented
     //target, toElement, srcElement, currentTarget
-    //clientX,clientY, screenX, screenY
-    // altKey, ctrlKey, shiftKey, keyCode
+    //clientX, clientY, screenX, screenY
+    //altKey, ctrlKey, shiftKey, keyCode
+
+
+    //event bubbling or propagation -> inner to outer means first owl clicked then li then ul
+    /*document.getElementById('images').addEventListener('click',function(e){ // e denotes event objects
+        console.log("Images");
+    },false)//default false
 
     document.getElementById('owl').addEventListener('click',function(e){ // e denotes event objects
-        console.log(e);
+        console.log("owl");
     },false)
+    
+    //event capturing -> reverse of event bubbling 
+    document.getElementById('images').addEventListener('click',function(e){ // e denotes event objects
+        console.log("Images");
+    },true)
 
+    document.getElementById('owl').addEventListener('click',function(e){ // e denotes event objects
+        console.log("owl");
+        e.stopPropagation(); // for stopping event bubbling and event propagation
+    },true)
+
+    //not load google
+    document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("google clicked");
+    },false)
+*/
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        // console.log(e); // the event occur that returns like pointerEvent
+        // console.log(e.target); // detailing of images
+        // console.log(e.target.parentNode);// detailing of li
+
+        console.log(e.target.tagName); // tage name like img or li
+
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let removeIt=e.target.parentNode;
+            removeIt.remove()
+        }
+        else{
+
+        }
+
+        // how to remove ?
+        // let removeIt=e.target.parentNode;
+        // removeIt.remove(); // 1st way
+
+        
+
+        // 2nd way
+        // e.target.parentNode.parentNode.removeChild(e.target.parentNode);  // readabilty difficult so store it into two lines
+        // let removeIt=e.target.parentNode;
+        // removeIt.parentNode.removeChild(removeIt);
+
+
+    },false);
 </script>
 </html>

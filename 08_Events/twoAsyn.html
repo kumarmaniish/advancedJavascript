@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai and Code</title>
+</head>
+<body>
+    <h1>Chai and Code</h1>
+    <button id="stop"> Stop</button>
+</body>
+<script>
+    // setTimeOut
+    const sayName=function(){
+        console.log("Manish")
+    }
+    setTimeout(sayName, 2000)
+
+    // to change the browser 
+    const changeText=function(){
+    document.querySelector('h1').innerHTML="best Javascirpt series"
+    const text=document.querySelector('h1');
+    text.style.backgroundColor='blue';
+    text.style.color='red';
+    }
+    
+    // call variables
+    const changeMe = setTimeout(changeText,2000)
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe); // to stop the setTimeout
+        console.log('STOPPED'); 
+    })
+
+    // setInterval(sayName,1000)
+</script>
+</html>
