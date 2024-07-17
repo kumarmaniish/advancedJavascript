@@ -34,3 +34,26 @@ document.querySelector("#start").addEventListener('click',startChangingColor);
 
 document.querySelector('#stop').addEventListener('click',stopChangingColor);
 
+// projects 5 keyboard
+
+
+const insert=document.getElementById('insert');
+
+window.addEventListener('keydown', (e)=>{
+  insert.innerHTML=`
+  <div class='color>
+    <table>
+      <tr>
+        <th>Key</th>
+        <th>Keycode</th>
+        <th>Code</th>
+      </tr>
+      <tr>
+        <td>${e.key === ' ' ? 'space' : e.key}</td>
+        <td>${e.keycode}</td>
+        <td>${e.Code}</td>
+      </tr>
+    </table>    
+  </div>
+  `;
+});
