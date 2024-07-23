@@ -6,6 +6,69 @@
     <title>Closure</title>
 </head>
 <body style="background-color: #313131;">
-    
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
 </body>
+<script>
+
+    //lexical scoping
+
+    // function outer(){
+    //     let username = "hitesh"
+    //     // console.log("outer ", secret);
+
+    //     function inner(){
+    //         let secret = 'my123'
+    //         console.log("inner ",username);
+    //     }
+
+    //     function innerTwo(){
+    //         console.log("innerTwo",username);
+    //         // console.log(secret);
+    //     }
+    //     inner(); // yaha se sidhe execute ho jata 
+    //     innerTwo();
+    // }
+    // outer()
+    // console.log("To Outer", username);
+
+
+    // closure
+    /*function makeFunc(){
+        const name="Mozilla";
+        function displayName(){
+            console.log(name);
+        }
+        return displayName; // yaha se refernce return kar raha hai mtlb outerscope to pura gayab hi ho gya
+    }
+
+    // closure is when you remove the function execution context but memory role came into picture, 
+    // when we execute myFunc and it returns the display name then not only displayname came into memroy.
+    //  if there  exits any outer function name then that outer function will also goes into.
+    const myFunc = makeFunc();
+    myFunc();*/
+
+
+</script>
+    
+<script>
+    // document.getElementById("orange").onclick=function(){
+    //     document.body.style.backgroundColor=`orange`
+    // }
+    // document.getElementById("green").onclick=function(){
+    //     document.body.style.backgroundColor=`green`
+    // }
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor=`${color}`;
+
+        return function(){
+            document.body.style.backgroundColor=`${color}`;
+        }
+    }
+
+    document.getElementById('orange').onclick=clickHandler("orange");
+    document.getElementById('green').onclick=clickHandler("green");
+</script>
+
 </html>
